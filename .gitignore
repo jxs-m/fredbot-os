@@ -1,0 +1,30 @@
+# Dependências e builds
+node_modules/
+build/
+.cache/
+.vite/
+
+# Variáveis de ambiente e segredos (NUNCA subir .env com GEMINI_API_KEY)
+.env
+.env.local
+.env.*.local
+
+# Banco de dados local gerado em execução
+data/*.db
+data/*.db-wal
+data/*.db-shm
+
+# Dados privados de conversas do WhatsApp
+msg/
+data/dialogos_extraidos.json
+
+# Arquivos temporários e rascunhos
+scratch/
+*.log
+npm-debug.log*
+.DS_Store
+
+# Slides de aula pesados (enunciados em PDF)
+Projeto_criando_agente_de_IA.pdf
+_Do_chatbot_tradicional_ao_chatbot_com_IA.pdf
+

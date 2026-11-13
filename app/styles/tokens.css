@@ -1,0 +1,72 @@
+:root {
+  /* Paleta Inspirada na Apresentação Retro-Moderna */
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --primary-blue-light: #dbeafe;
+  --primary-blue-glow: rgba(37, 99, 235, 0.2);
+
+  --accent-yellow: #f59e0b;
+  --accent-yellow-light: #fef3c7;
+  --accent-yellow-card: #fffbeb;
+  --accent-yellow-border: #fcd34d;
+
+  --desktop-bg: #e5eaf2;
+  --desktop-pattern: #cbd5e1;
+
+  --window-bg: #ffffff;
+  --window-border: #0f172a;
+  --window-header-blue: #2563eb;
+  --window-header-yellow: #fef08a;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #64748b;
+  --text-white: #ffffff;
+
+  --status-confirmed: #10b981;
+  --status-pending: #f59e0b;
+  --status-urgent: #ef4444;
+
+  --terminal-bg: #0b1120;
+  --terminal-header: #1e293b;
+  --terminal-cyan: #38bdf8;
+  --terminal-green: #4ade80;
+  --terminal-yellow: #fbbf24;
+  --terminal-text: #e2e8f0;
+
+  /* Tipografia */
+  --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Bordas e Sombras Retro-Modernas */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-retro: 4px 4px 0px rgba(15, 23, 42, 0.9);
+  --shadow-retro-sm: 2px 2px 0px rgba(15, 23, 42, 0.9);
+  --shadow-floating: 0 10px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--desktop-bg);
+  background-image: 
+    radial-gradient(circle, var(--desktop-pattern) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(203, 213, 225, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(203, 213, 225, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}

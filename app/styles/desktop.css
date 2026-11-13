@@ -1,0 +1,440 @@
+/* FredOS Top Bar */
+.fredos-topbar {
+  background-color: #0f172a;
+  color: #f8fafc;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 2px solid #000;
+  user-select: none;
+  z-index: 50;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 1.1rem;
+}
+
+.brand-name {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #38bdf8;
+}
+
+.topbar-subtitle {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  border-left: 1px solid #334155;
+  padding-left: 12px;
+}
+
+.topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mode-badge {
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode-badge.gemini {
+  background-color: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.mode-badge.offline {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.topbar-clock {
+  font-family: var(--font-mono);
+  color: #e2e8f0;
+}
+
+/* Desktop Workspace Area */
+.desktop-workspace {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .desktop-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Retro Window Styles */
+.retro-window {
+  background: var(--window-bg);
+  border: 2px solid var(--window-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-retro);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.retro-window:hover {
+  box-shadow: 6px 6px 0px rgba(15, 23, 42, 0.95);
+}
+
+.window-header {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--window-border);
+  user-select: none;
+}
+
+.window-header.blue {
+  background: var(--window-header-blue);
+  color: var(--text-white);
+}
+
+.window-header.yellow {
+  background: #fde047;
+  color: #0f172a;
+}
+
+.window-header.dark {
+  background: var(--terminal-header);
+  color: #e2e8f0;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.6);
+  display: inline-block;
+}
+
+.control-dot.close { background-color: #ef4444; }
+.control-dot.minimize { background-color: #f59e0b; }
+.control-dot.maximize { background-color: #10b981; }
+
+.window-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.window-status-pill {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.window-header.yellow .window-status-pill {
+  background: rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  color: #0f172a;
+}
+
+/* Window 1: Chat Window */
+.chat-window {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  min-height: 540px;
+}
+
+/* Window 2: Central do Fred */
+.central-fred-window {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Window 3: Live Inspector */
+.inspector-window {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background: var(--terminal-bg);
+}
+
+.inspector-body {
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--terminal-text);
+  max-height: 220px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.terminal-line {
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.terminal-line.call {
+  color: var(--terminal-cyan);
+}
+
+.terminal-line.success {
+  color: var(--terminal-green);
+}
+
+.terminal-line.idle {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Central do Fred Content */
+.central-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.central-section-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 2px dashed #cbd5e1;
+  padding-bottom: 6px;
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agenda-card {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+.agenda-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-blue);
+}
+
+.agenda-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agenda-time {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.status-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.status-badge.confirmado {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.status-badge.pendente_aprovacao {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.agenda-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.agenda-solicitante {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Recados Cards (Post-it style) */
+.recados-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recado-card {
+  background: var(--accent-yellow-card);
+  border: 1.5px solid var(--accent-yellow-border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  box-shadow: 2px 2px 0px rgba(245, 158, 11, 0.4);
+  position: relative;
+  transition: transform 0.1s ease;
+}
+
+.recado-card:hover {
+  transform: rotate(-0.5deg) translateY(-2px);
+}
+
+.recado-card.urgente {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  box-shadow: 2px 2px 0px rgba(239, 68, 68, 0.4);
+}
+
+.recado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.recado-autor {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #0f172a;
+}
+
+.badge-urgente {
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badge-normal {
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.recado-texto {
+  font-size: 0.82rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.recado-data {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  display: block;
+}
+
+.agenda-footer-row,
+.recado-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.mini-action-btn {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1.5px solid var(--window-border);
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.mini-action-btn.confirm {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #15803d;
+}
+
+.mini-action-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 1.5px 1.5px 0px rgba(15, 23, 42, 0.8);
+}
+
+.mini-action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.recado-card.lido {
+  opacity: 0.68;
+}
+
+/* Rodapé Acadêmico */
+.academic-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.8);
+  margin-top: auto;
+}
+
+.academic-footer strong {
+  color: var(--text-main);
+}
