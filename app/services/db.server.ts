@@ -1,7 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 import fs from 'node:fs';
-import { SEED_COMPROMISSOS, SEED_RECADOS, SEED_MEMORIAS } from '~/data/seeds';
+import { SEED_MEMORIAS } from '~/data/seeds';
 import type { Compromisso, Recado, Memoria, DashboardData } from '~/types';
 
 const DB_DIR = path.resolve(process.cwd(), 'data');
@@ -55,33 +55,7 @@ function initDatabase(db: DatabaseSync): DatabaseSync {
     );
   `);
 
-  // Sincronizar agenda inicial sem duplicar
-  const existingAgendaRows = db.prepare('SELECT titulo, data, hora FROM agenda').all() as Array<{ titulo: string; data: string; hora: string }>;
-  const agendaSet = new Set(existingAgendaRows.map((r) => `${r.titulo}|${r.data}|${r.hora}`));
-  const insertAgenda = db.prepare(`
-    INSERT INTO agenda (titulo, data, hora, solicitante, status)
-    VALUES (?, ?, ?, ?, ?)
-  `);
-  for (const item of SEED_COMPROMISSOS) {
-    if (!agendaSet.has(`${item.titulo}|${item.data}|${item.hora}`)) {
-      insertAgenda.run(item.titulo, item.data, item.hora, item.solicitante, item.status);
-    }
-  }
-
-  // Sincronizar recados iniciais sem duplicar
-  const existingRecadosRows = db.prepare('SELECT nome_amigo, mensagem FROM recados').all() as Array<{ nome_amigo: string; mensagem: string }>;
-  const recadosSet = new Set(existingRecadosRows.map((r) => `${r.nome_amigo}|${r.mensagem}`));
-  const insertRecado = db.prepare(`
-    INSERT INTO recados (nome_amigo, mensagem, prioridade, criado_em, lido)
-    VALUES (?, ?, ?, ?, ?)
-  `);
-  for (const item of SEED_RECADOS) {
-    if (!recadosSet.has(`${item.nomeAmigo}|${item.mensagem}`)) {
-      insertRecado.run(item.nomeAmigo, item.mensagem, item.prioridade, item.criadoEm, item.lido ? 1 : 0);
-    }
-  }
-
-  // Sincronizar memórias históricas sem duplicar
+  // Sincronizar memórias históricas sem duplicar (agenda e recados começam vazios por padrão)
   const existingMemoriaRows = db.prepare('SELECT conteudo FROM memoria_fatos').all() as Array<{ conteudo: string }>;
   const memoriaSet = new Set(existingMemoriaRows.map((r) => r.conteudo));
   const insertMemoria = db.prepare(`

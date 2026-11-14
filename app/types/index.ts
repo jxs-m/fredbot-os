@@ -1,6 +1,6 @@
 export type PrioridadeRecado = 'normal' | 'urgente';
 export type StatusCompromisso = 'confirmado' | 'pendente_aprovacao' | 'conflito';
-export type CategoriaMemoria = 'rolê' | 'comida' | 'faculdade' | 'viagem' | 'jogos' | 'banda' | 'instrumentos' | 'zoeira' | 'gírias' | 'rpg';
+export type CategoriaMemoria = 'rolê' | 'comida' | 'tecnico' | 'viagem' | 'jogos' | 'banda' | 'instrumentos' | 'zoeira' | 'gírias' | 'rpg' | 'trote' | 'ensaio';
 
 export interface Compromisso {
   id?: number;

@@ -305,8 +305,8 @@ def sync_sqlite_memories(db_path: str):
         ),
         (
             'trote',
-            'fantasia,trote,fósforo,dean winchester,dani,dâma',
-            'No trote da faculdade, a Dâma ia de Dean Winchester (e o Dani ficou bravo porque queria ir de Dean também). O Fred soltou que não fazia a mínima ideia e ia de "fósforo", e o Dani mandou ele botar fogo no cabelo!'
+            'fantasia,trote,fósforo,dean winchester,dani,dâma,terceirão,colégio',
+            'No trote do terceirão (reta final do Técnico em Informática Integrado ao Ensino Médio), a Dâma ia de Dean Winchester (e o Dani ficou bravo porque queria ir de Dean também). O Fred soltou que não fazia a mínima ideia e ia de "fósforo", e o Dani mandou ele botar fogo no cabelo!'
         )
     ]
 

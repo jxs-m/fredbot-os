@@ -1,7 +1,8 @@
 # FredBot OS — PersonaBot Tech / FredIA
 
 > **Instituição:** Instituto Federal Farroupilha (IFFarroupilha)  
-> **Disciplina:** Desenvolvimento de Inteligência Artificial  
+> **Curso:** Técnico em Informática Integrado ao Ensino Médio (Concluintes)  
+> **Disciplina:** Tópicos Emergentes da Informática  
 > **Professor:** Luiz Rafael Jacques Caldeira  
 > **Equipe:** Murilo Jaques, Daniel Guerra, João Vitor  
 > **Aplicação Prática:** Agente Conversacional Híbrido (Regras Tradicionais + IA Generativa) com Function Calling e SQLite
@@ -10,7 +11,7 @@
 
 ## 1. Sobre o Projeto
 
-O **FredBot OS** é um agente conversacional autônomo desenvolvido como o *Gêmeo Digital* do colega **Frederico**, pela empresa simulada **PersonaBot Tech**. Como o Fred real está constantemente sobrecarregado entre faculdade, trabalho e ensaios da banda *Orquídea Negra*, o **Fred IA** assume a comunicação com a turma e executa ações reais no sistema.
+O **FredBot OS** é um agente conversacional autônomo desenvolvido como o *Gêmeo Digital* do colega **Frederico**, pela empresa simulada **PersonaBot Tech**. Como o Fred real está na reta final de conclusão do curso **Técnico em Informática Integrado ao Ensino Médio** no IFFarroupilha — sobrecarregado entre entregas da disciplina de Tópicos Emergentes da Informática (IA), rotina escolar e ensaios da banda *Orquídea Negra* —, o **Fred IA** assume a comunicação com a turma e executa ações reais no sistema.
 
 ### Como o projeto atende aos requisitos do Trabalho Final
 1. **Interface Funcional:** Desktop web interativo (*FredOS*) com 3 janelas simultâneas: Chat em tempo real, Central do Fred (agenda e recados editáveis) e *Live Inspector* de chamadas.
@@ -56,9 +57,7 @@ empresa/
 │   └── extrair_dialogos_whatsapp.py  # Extrator de chats .zip do WhatsApp
 ├── data/                       # Banco local SQLite (fredbot.db - ignorado no Git)
 ├── .env.example                # Modelo de configuração de variáveis de ambiente
-├── .gitignore                  # Protege .env, node_modules, bancos locais e chats privados
-├── ALIMENTACAO_IA.md           # Documentação detalhada do corpus e prompts
-└── DOCUMENTO_DE_ENTREGA.md     # Resumo formal e roteiro do Pitch (5 minutos)
+└── .gitignore                  # Protege .env, node_modules, bancos locais e chats privados
 ```
 
 ---

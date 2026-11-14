@@ -424,6 +424,17 @@
   opacity: 0.68;
 }
 
+.empty-state-card {
+  padding: 12px;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: var(--radius-sm);
+  background: #f8fafc;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
 /* Rodapé Acadêmico */
 .academic-footer {
   text-align: center;

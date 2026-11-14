@@ -403,39 +403,45 @@ export default function Index() {
                 <span style={{ color: "var(--primary-blue)" }}>{dashboard.agenda.length} ativos</span>
               </div>
               <div className="agenda-list">
-                {dashboard.agenda.map((ev) => (
-                  <div key={ev.id ?? `${ev.data}-${ev.hora}`} className="agenda-card">
-                    <div className="agenda-card-header">
-                      <span className="agenda-time">
-                        {ev.data} às {ev.hora}
-                      </span>
-                      <span className={`status-badge ${ev.status}`}>
-                        {ev.status === "confirmado" ? "Confirmado" : "Pendente"}
-                      </span>
-                    </div>
-                    <div className="agenda-title">{ev.titulo}</div>
-                    <div className="agenda-footer-row">
-                      <div className="agenda-solicitante">
-                        Por: <strong>{ev.solicitante}</strong>
-                      </div>
-                      {ev.id && ev.status !== "confirmado" && (
-                        <button
-                          type="button"
-                          className="mini-action-btn confirm"
-                          disabled={dashboardFetcher.state !== "idle"}
-                          onClick={() =>
-                            dashboardFetcher.submit(
-                              { intent: "confirm_agenda", id: String(ev.id) },
-                              { method: "post", action: "/?index" }
-                            )
-                          }
-                        >
-                          ✓ Confirmar
-                        </button>
-                      )}
-                    </div>
+                {dashboard.agenda.length === 0 ? (
+                  <div className="empty-state-card">
+                    Nenhum compromisso na agenda ainda. Peça ao Fred IA para marcar um horário!
                   </div>
-                ))}
+                ) : (
+                  dashboard.agenda.map((ev) => (
+                    <div key={ev.id ?? `${ev.data}-${ev.hora}`} className="agenda-card">
+                      <div className="agenda-card-header">
+                        <span className="agenda-time">
+                          {ev.data} às {ev.hora}
+                        </span>
+                        <span className={`status-badge ${ev.status}`}>
+                          {ev.status === "confirmado" ? "Confirmado" : "Pendente"}
+                        </span>
+                      </div>
+                      <div className="agenda-title">{ev.titulo}</div>
+                      <div className="agenda-footer-row">
+                        <div className="agenda-solicitante">
+                          Por: <strong>{ev.solicitante}</strong>
+                        </div>
+                        {ev.id && ev.status !== "confirmado" && (
+                          <button
+                            type="button"
+                            className="mini-action-btn confirm"
+                            disabled={dashboardFetcher.state !== "idle"}
+                            onClick={() =>
+                              dashboardFetcher.submit(
+                                { intent: "confirm_agenda", id: String(ev.id) },
+                                { method: "post", action: "/?index" }
+                              )
+                            }
+                          >
+                            ✓ Confirmar
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 
@@ -446,38 +452,44 @@ export default function Index() {
                 <span style={{ color: "var(--accent-yellow)" }}>{dashboard.recados.length} notas</span>
               </div>
               <div className="recados-list">
-                {dashboard.recados.map((rec) => (
-                  <div
-                    key={rec.id ?? rec.criadoEm}
-                    className={`recado-card ${rec.prioridade} ${rec.lido ? "lido" : ""}`}
-                  >
-                    <div className="recado-header">
-                      <span className="recado-autor">👤 {rec.nomeAmigo}</span>
-                      <span className={`badge-${rec.prioridade}`}>
-                        {rec.prioridade === "urgente" ? "URGENTE" : "Normal"}
-                      </span>
-                    </div>
-                    <p className="recado-texto">{rec.mensagem}</p>
-                    <div className="recado-footer-row">
-                      <span className="recado-data">🕒 {rec.criadoEm}</span>
-                      {rec.id && (
-                        <button
-                          type="button"
-                          className="mini-action-btn"
-                          disabled={dashboardFetcher.state !== "idle"}
-                          onClick={() =>
-                            dashboardFetcher.submit(
-                              { intent: "toggle_recado", id: String(rec.id) },
-                              { method: "post", action: "/?index" }
-                            )
-                          }
-                        >
-                          {rec.lido ? "✓ Lido" : "Marcar lido"}
-                        </button>
-                      )}
-                    </div>
+                {dashboard.recados.length === 0 ? (
+                  <div className="empty-state-card">
+                    Nenhum recado salvo ainda. Deixe um aviso pelo chat para aparecer aqui!
                   </div>
-                ))}
+                ) : (
+                  dashboard.recados.map((rec) => (
+                    <div
+                      key={rec.id ?? rec.criadoEm}
+                      className={`recado-card ${rec.prioridade} ${rec.lido ? "lido" : ""}`}
+                    >
+                      <div className="recado-header">
+                        <span className="recado-autor">👤 {rec.nomeAmigo}</span>
+                        <span className={`badge-${rec.prioridade}`}>
+                          {rec.prioridade === "urgente" ? "URGENTE" : "Normal"}
+                        </span>
+                      </div>
+                      <p className="recado-texto">{rec.mensagem}</p>
+                      <div className="recado-footer-row">
+                        <span className="recado-data">🕒 {rec.criadoEm}</span>
+                        {rec.id && (
+                          <button
+                            type="button"
+                            className="mini-action-btn"
+                            disabled={dashboardFetcher.state !== "idle"}
+                            onClick={() =>
+                              dashboardFetcher.submit(
+                                { intent: "toggle_recado", id: String(rec.id) },
+                                { method: "post", action: "/?index" }
+                              )
+                            }
+                          >
+                            {rec.lido ? "✓ Lido" : "Marcar lido"}
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -515,9 +527,9 @@ export default function Index() {
         </section>
       </main>
 
-      {/* Rodapé Acadêmico */}
+      {/* Rodapé Escolar */}
       <footer className="academic-footer">
-        Trabalho de <strong>Desenvolvimento de Inteligência Artificial</strong> — Prof.{" "}
+        Trabalho de <strong>Tópicos Emergentes da Informática</strong> — <strong>Técnico em Informática Integrado ao Ensino Médio</strong> • Prof.{" "}
         <strong>Luiz Rafael Jacques Caldeira</strong> (IFFarroupilha)
         <br />
         Equipe: <strong>Murilo Jaques</strong>, <strong>Daniel Guerra</strong> e <strong>João Vitor</strong> • Empresa:{" "}

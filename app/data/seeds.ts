@@ -1,59 +1,4 @@
-import type { Compromisso, Recado, Memoria } from '~/types';
-
-export const SEED_COMPROMISSOS: Compromisso[] = [
-  {
-    titulo: 'Aula de Inteligência Artificial (Prof. Luiz Rafael Caldeira)',
-    data: '2026-10-14',
-    hora: '14:00',
-    solicitante: 'IFFarroupilha',
-    status: 'confirmado',
-  },
-  {
-    titulo: 'Ensaio da Orquídea Negra (Ajuste das 2 Guitarras e Baixo)',
-    data: '2026-10-15',
-    hora: '18:30',
-    solicitante: 'Daniel',
-    status: 'confirmado',
-  },
-  {
-    titulo: 'Alinhamento do Projeto FredBot',
-    data: '2026-10-16',
-    hora: '09:30',
-    solicitante: 'Murilo',
-    status: 'confirmado',
-  },
-  {
-    titulo: 'Jogatina de War e Piscina na Casinha do Jão',
-    data: '2026-10-17',
-    hora: '15:00',
-    solicitante: 'João Vitor',
-    status: 'confirmado',
-  },
-];
-
-export const SEED_RECADOS: Recado[] = [
-  {
-    nomeAmigo: 'Murilo',
-    mensagem: 'Não esquece de conferir a ordem das falas no pitch do PersonaBot pro Caldeira!',
-    prioridade: 'urgente',
-    criadoEm: '2026-10-09 09:15',
-    lido: false,
-  },
-  {
-    nomeAmigo: 'Daniel',
-    mensagem: 'Lembra de trazer o cabo P10 e a correia da guitarra pro ensaio da Orquídea Negra.',
-    prioridade: 'normal',
-    criadoEm: '2026-10-09 10:00',
-    lido: false,
-  },
-  {
-    nomeAmigo: 'João Vitor',
-    mensagem: 'Te mandei a localização da casinha pra tu não ir parar na escola de novo pro War e piscina!',
-    prioridade: 'normal',
-    criadoEm: '2026-10-09 11:30',
-    lido: false,
-  },
-];
+import type { Memoria } from '~/types';
 
 export const SEED_MEMORIAS: Memoria[] = [
   {
@@ -90,7 +35,7 @@ export const SEED_MEMORIAS: Memoria[] = [
     categoria: 'comida',
     palavrasChave: ['lanche', 'xis', 'monstro', 'comida', 'rolê', 'fome', 'apocalipse', 'tio zé', 'coração'],
     conteudo:
-      'O inesquecível "Xis Apocalipse do Tio Zé"! Aquele monstro de 1,5 kg com coração de galinha, bacon crocante, quatro hambúrgueres e maionese verde caseira que a gente pediu depois do seminário. O Daniel passou três dias falando que nunca mais comia nada e o Fred devorou até a última batata!',
+      'O inesquecível "Xis Apocalipse do Tio Zé"! Aquele monstro de 1,5 kg com coração de galinha, bacon crocante, quatro hambúrgueres e maionese verde caseira que a gente pediu depois da apresentação no IFFarroupilha. O Daniel passou três dias falando que nunca mais comia nada e o Fred devorou até a última batata!',
   },
   {
     categoria: 'rolê',
@@ -99,10 +44,10 @@ export const SEED_MEMORIAS: Memoria[] = [
       'A clássica pelada de quarta-feira às 19h no Campo dos Amigos. O Fred joga na zaga com garra (e muita canelada), e depois a turma sempre para na lanchonete da esquina.',
   },
   {
-    categoria: 'faculdade',
-    palavrasChave: ['prova', 'ia', 'estudo', 'caldeira', 'inteligencia artificial', 'iffarroupilha', 'calculadora'],
+    categoria: 'tecnico',
+    palavrasChave: ['prova', 'ia', 'estudo', 'caldeira', 'topicos emergentes', 'tópicos emergentes', 'inteligencia artificial', 'iffarroupilha', 'calculadora', 'tecnico', 'técnico', 'informatica', 'informática', 'ensino medio', 'ensino médio', 'colégio'],
     conteudo:
-      'Matéria de IA com o professor Luiz Rafael Caldeira no IFFarroupilha. Foco total em Agentes Autônomos, Function Calling, SQLite e RAG. O Fred vive emprestando a calculadora científica pro Murilo e pro Daniel.',
+      'Matéria de Tópicos Emergentes da Informática (IA) na reta final do curso Técnico em Informática Integrado ao Ensino Médio com o professor Luiz Rafael Caldeira no IFFarroupilha. Foco total em Agentes Autônomos, Function Calling, SQLite e RAG. O Fred vive emprestando a calculadora científica pro Murilo e pro Daniel.',
   },
   {
     categoria: 'jogos',
@@ -189,10 +134,10 @@ export const SEED_MEMORIAS: Memoria[] = [
       'O falso escândalo no "Uruguaiana 24 Horas": a foto zoada do Daniel e Louizão que a turma fingiu que saiu na página policial local ("amanhã vocês já vão ser presos seus fascistas!"), com o Fred mandando a risada: "Tem que estudar né... Vcs tão rindo do quê? Tem edição nenhuma pô, nem IA!".',
   },
   {
-    categoria: 'faculdade',
-    palavrasChave: ['gemini', 'apostila', 'mamíferos', 'do mais sujo', 'ia', 'caldeira'],
+    categoria: 'tecnico',
+    palavrasChave: ['gemini', 'apostila', 'mamíferos', 'do mais sujo', 'ia', 'caldeira', 'colégio', 'tecnico'],
     conteudo:
-      'O meme da apostila de mamíferos: quando o Dani mandou uma apostila suspeita do colégio perguntando "To loqueando ou isso é puro Gemini?", o Fred cravou com autoridade de estudante de IA: "Do mais sujo!".',
+      'O meme da apostila de mamíferos: quando o Dani mandou uma apostila suspeita do colégio perguntando "To loqueando ou isso é puro Gemini?", o Fred cravou com autoridade de concluinte do Técnico em Informática: "Do mais sujo!".',
   },
 ];
 

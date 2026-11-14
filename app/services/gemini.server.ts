@@ -91,7 +91,7 @@ const toolDeclarations = [
       properties: {
         termo: {
           type: SchemaType.STRING,
-          description: 'Palavra-chave ou assunto da lembrança (ex: lanche monstro, futebol, prova de IA, xis).',
+          description: 'Palavra-chave ou assunto da lembrança (ex: lanche monstro, futebol, tópicos emergentes, xis).',
         },
       },
       required: ['termo'],
