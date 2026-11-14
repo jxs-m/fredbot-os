@@ -41,7 +41,7 @@ empresa/
 │   ├── data/
 │   │   ├── persona.ts          # Identidade, contexto e regras de comportamento do Fred
 │   │   ├── few_shots.ts        # Exemplos reais de diálogo extraídos do WhatsApp
-│   │   └── seeds.ts            # Dados iniciais de agenda, recados e memórias
+│   │   └── seeds.ts            # Memórias históricas do Fred e da turma
 │   ├── routes/
 │   │   └── _index.tsx          # Interface FredOS + loader/action HTTP POST + ErrorBoundary
 │   ├── services/
